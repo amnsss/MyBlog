@@ -1,0 +1,12 @@
+1.取得项目仓库
+	1.进到现有项目文件夹下,执行: $ git init
+	2.从远程仓库克隆: $ git clone git://github.com/schacon/grit.git
+2.添加远程仓库(即和远程库关联)
+	git remote add [shortname] [url]
+	git remote add origin https://github.com/amnsss/MyBlog.git(git 默认的远程库名是origin. 上面的amnsss/..各人不同)
+
+	关联之后就可以push(Key必须已经添加到信任列表中)
+	git push -u origin master
+	-u参数,Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令
+3.创建密钥相关
+	https://help.github.com/articles/generating-ssh-keys/
