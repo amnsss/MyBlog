@@ -1,0 +1,24 @@
+display:block --> div, p, h1-h6, ul, form, ...
+	默认宽度为父元素宽度
+	可设置宽高
+	换行显示
+display:inline --> span, a, label, cite, em, ...
+	默认宽度为内容宽度
+	不可设置宽高
+	同行显示
+	可在元素内换行
+display:inline-block --> input, textarea, select, button, ...
+	默认宽度为内容宽度
+	可设置宽高
+	同行显示
+	整块换行
+	可以设置vertical-align:middle(是元素相当于其他元素垂直居中)
+display:none 不占据原来位置
+visibility:hidden 占据原来位置
+
+只对行级元素有效果
+text-align
+
+只对块级元素有效果
+
+
