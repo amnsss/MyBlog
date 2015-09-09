@@ -1,0 +1,8 @@
+function Peron(){ ... };
+Person.prototype = { ... };
+var a = new Person();
+JavaScript的new关键字的执行过程:
+1.创建Object obj = {};
+2.将构造函数的原型赋值给Object的原型 obj.__proto__ = Person.prototype;
+3.Object调用构造函数 Person.apply(obj);
+4.返回Object a = obj;
