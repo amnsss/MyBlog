@@ -35,7 +35,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             }
         })
         .state('booklist', {
-            url: '/{bookType:[0-9]{1,4}}',
+            //url: '/{bookType:[0-9]{1,4}}',
             views: { //注意这里的写法，当一个页面上带有多个ui-view的时候如何进行命名和视图模板的加载动作
                 '': {
                     templateUrl: 'tpls/bookList.html'
@@ -62,8 +62,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                 '': {
                     templateUrl: 'tpls/userBlog.html'
                 },
-                'bloglist@userBlog': {
-                    templateUrl: 'tpls/bloglist.html'
+                'navBar@userBlog': {
+                    templateUrl: 'tpls/navBar.html'
+                },
+                'blogList@userBlog': {
+                    templateUrl: 'tpls/blogList.html'
                 },
                 'blogContent@userBlog': {
                     templateUrl: 'tpls/blogContent.html'
