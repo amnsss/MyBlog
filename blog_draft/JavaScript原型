@@ -1,0 +1,62 @@
+什么是原型?
+	原型是一个对象, 其他对象可以通过它实现属性继承.
+任何一个对象都可以成为原型吗?
+	是
+那些对象有原型?
+	只有函数有原型属性prototype(理解原型与原型属性)
+	所有对象在默认情况下都有一个原型,原型本身也是一个对象,所以每个原型
+自身也有一个原型(只有一个对象例外, 默认的对象)
+什么是对象?
+	无序键值对的集合,如果不是原始类型(undefined, null, boolean, number, string), 那么它就是一个对象.
+
+	当你试图获取一个主数据类型的原型时，它被强制转化成了一个对象
+	//(works in IE too, but only by accident) 
+ 
+	false.__proto__ === Boolean(false).__proto__; 
+	//true
+
+一个对象的真正原型是被对象内部的[[Prototype]]属性(property)所持有。ECMA引入了标准对象原型访问器Object.getPrototype(object)，到目前为止只有Firefox和chrome实现了此访问器。除了IE，其他的浏览器支持非标准的访问器__proto__，如果这两者都不起作用的，我们需要从对象的构造函数中找到的它原型属性。下面的代码展示了获取对象原型的方法
+var a = {}; 
+ 
+//Firefox 3.6 and Chrome 5 
+ 
+ Object.getPrototypeOf(a); 
+//[object Object]   
+ 
+ 
+//Firefox 3.6, Chrome 5 and Safari 4 
+ 
+a.__proto__; 
+//[object Object]   
+ 
+ 
+//all browsers 
+ 
+ a.constructor.prototype; 
+//[object Object]
+
+总结:
+对象:
+	自身属性
+	构造器属性(constructor)
+	原型(__proto__)
+
+函数(构造方法):
+	自身属性
+	构造器属性(constructor)
+	原型属性(prototype)
+	原型(__proto__)
+
+对象.原型(__proto__) === 函数(构造方法).原型属性(prototype)
+对象.构造器属性 === 函数(构造方法)
+
+
+
+
+
+
+
+
+
+
+
