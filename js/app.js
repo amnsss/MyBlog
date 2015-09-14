@@ -57,16 +57,19 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                     templateUrl: 'tpls/navBar.html'
                 },
                 'blogList@userBlog': {
-                    templateUrl: 'tpls/blogList.html'
+                    templateUrl: 'tpls/blogList.html',
+                    controller: 'blogListCtrl'
                 },
                 'blogContent@userBlog': {
-                    templateUrl: 'tpls/blogContent.html'
+                    templateUrl: 'tpls/blogContent.html',
+                    controller: 'blogContentCtrl'
                 }
             }
         })
         .state('edit', {
             url: '/edit',
-            templateUrl: 'tpls/edit.html'
+            templateUrl: 'tpls/edit.html',
+            controller: 'editCtrl'
         })
 });
 

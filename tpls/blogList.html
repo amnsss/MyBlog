@@ -1,6 +1,15 @@
 <div class="list-content">
 		<h2>文章列表</h2>
 		<ul class="list-unstyled">
+			<li class="item" ng-repeat="blog in userInfo.blogs">
+				<a>blog.name</a>
+				<div>
+				<span>blog.createDte<span>
+				<span>浏览次数: blog.scanTimes<span>
+				</div>
+			</li>
+		</ul>
+		<ul class="list-unstyled">
 			<li class="item">
 				<a>mvsdjfsalk</a>
 				<div>
