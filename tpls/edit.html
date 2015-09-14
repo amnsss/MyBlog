@@ -1,6 +1,6 @@
-<div>
-	<textarea placeholder="用Markdown高效写文章"></textarea>
+<div class="edit_container">
+	<textarea class="edit_area" placeholder="用Markdown高效写文章" ng-change="preview()" ng-model="blog_content"></textarea>
 </div>
-<div>
-	你的预览
+<div id="blog_preview" class="blog_preview" preview="content_dom">
+	文章预览
 </div>
