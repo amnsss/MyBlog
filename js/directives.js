@@ -14,8 +14,8 @@ BlogDirectiveModule.directive( 'blogContent', function ($http) {
 
 BlogDirectiveModule.directive( 'preview', function () {
   return {
-    link: function (  scope, element, attr ) {
-      scope.$watch(attr.preview, function(content) {
+    link: function (  scope, element, attrs ) {
+      scope.$watch(attrs.preview, function(content) {
         element.html(content);
       });
     }

@@ -11,8 +11,8 @@ routerApp.controller('loginCtrl', function($rootScope, $scope, $http){
 		var userInfoFile = $scope.userInfo.userName+'_'+$scope.userInfo.password;
 		$http.get('../data/users/' + userInfoFile + '.json')
   			.success(function(result) {
-  				var userInfo = result;
-  			  $rootScope.$state.go('userBlog', userInfo);
+  				$rootScope.userInfo = result;
+  			  $rootScope.$state.go('userBlog');
   			})
   			.error(function(err) {
   				$scope.error_message = '用户名或密码错误';
@@ -24,8 +24,8 @@ BlogContentModule.controller('blogContentCtrl', function($scope, $http, $state, 
 	$scope.userInfo = $stateParams; 
 });
 
-BlogListModule.controller('blogListCtrl', function($scope, $http, $state, $stateParams) {
-	
+BlogListModule.controller('blogListCtrl', function($rootScope, $scope, $http, $state, $stateParams) {
+	$scope.userInfo = $rootScope.userInfo; 
 	
 });
 
