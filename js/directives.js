@@ -1,13 +1,15 @@
 var BlogDirectiveModule = angular.module('BlogDirectiveModule', []);
 BlogDirectiveModule.directive( 'blogContent', function ($http) {
   return {
-    restrict: 'A',
+    restrict: 'AE',
     transclude: false,
-    link: function ( $scope, $element ) {
-      $http.get('../data/blogs/' + 'first' + '.html')
-  			.success(function(result) {
-  			  $element.html(result);
-  			});
+    link: function ( $scope, $element, attrs ) {
+      $scope.$watch(attrs.blogContent, function(value){
+        $http.get('../data/blogs/' + value + '.html')
+          .success(function(result) {
+            $element.html(result);
+          });
+      });      
     }
   };
 } );

@@ -2,54 +2,10 @@
 		<h2>文章列表</h2>
 		<ul class="list-unstyled">
 			<li class="item" ng-repeat="blog in userInfo.blogs">
-				<a ng-bind="blog.name"></a>
+				<a ng-bind="blog.name" href="#userBlog/{{blog.name}}"></a>
 				<div>
 				<span ng-bind="blog.createDate"></span>
 				<span>浏览次数:</span><span ng-bind="blog.scanTimes"></span>
-				</div>
-			</li>
-		</ul>
-		<ul class="list-unstyled">
-			<li class="item">
-				<a>mvsdjfsalk</a>
-				<div>
-				<span>2015-09-09<span>
-				<span>浏览次数: 105<span>
-				</div>
-			</li>
-			<li class="item">
-				<a>JavaScript原型继承</a>
-				<div>
-				<span>2015-09-09<span>
-				<span>浏览次数: 105<span>
-        </div>
-			</li>
-			<li class="item">
-				<a>CSS3.0</a>
-				<div>
-				<span>2015-09-09<span>
-				<span>浏览次数: 105<span>
-				</div>
-			</li>
-			<li class="item">
-				<a>文章名</a>
-				<div>
-				<span>2015-09-09<span>
-				<span>浏览次数: 105<span>
-				</div>
-			</li>
-			<li class="item">
-				<a>文章名</a>
-				<div>
-				<span>2015-09-09<span>
-				<span>浏览次数: 105<span>
-				</div>
-			</li>
-			<li class="item">
-				<a>文章名</a>
-				<div>
-				<span>2015-09-09<span>
-				<span>浏览次数: 105<span>
 				</div>
 			</li>
 		</ul>

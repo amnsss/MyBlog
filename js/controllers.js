@@ -21,11 +21,15 @@ routerApp.controller('loginCtrl', function($rootScope, $scope, $http){
 });
 
 BlogContentModule.controller('blogContentCtrl', function($scope, $http, $state, $stateParams) {
-	$scope.userInfo = $stateParams; 
+	$scope.blogName = $stateParams.blogName; 
 });
 
 BlogListModule.controller('blogListCtrl', function($rootScope, $scope, $http, $state, $stateParams) {
 	$scope.userInfo = $rootScope.userInfo; 
+
+	$scope.showBlog = function(blog) {
+		var blogName = blog.name;
+	}
 	
 });
 

@@ -48,7 +48,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'tpls/bookDetail.html'
         })
         .state('userBlog', {
-            url: '/userBlog',
+            url: '/userBlog/{blogName}',
             views: { 
                 '': {
                     templateUrl: 'tpls/userBlog.html'
