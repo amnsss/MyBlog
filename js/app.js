@@ -54,7 +54,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                     templateUrl: 'tpls/userBlog.html'
                 },
                 'navBar@userBlog': {
-                    templateUrl: 'tpls/navBar.html'
+                    templateUrl: 'tpls/navBar.html',
+                    controller: 'navBarCtrl'
                 },
                 'blogList@userBlog': {
                     templateUrl: 'tpls/blogList.html',

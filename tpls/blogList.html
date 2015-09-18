@@ -1,7 +1,7 @@
 <div class="list-content">
 		<h2>文章列表</h2>
 		<ul class="list-unstyled">
-			<li class="item" ng-repeat="blog in userInfo.blogs">
+			<li class="item" ng-repeat="blog in userInfo.blogs | filter:query">
 				<a ng-bind="blog.name" href="#userBlog/{{blog.name}}"></a>
 				<div>
 				<span ng-bind="blog.createDate"></span>
