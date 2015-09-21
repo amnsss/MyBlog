@@ -1,0 +1,33 @@
+	同源策略以及跨域资源共享在大部分情况下针对的是Ajax请求。同源策略主要限制了通过XMLHttpRequest实现的Ajax请求，
+如果请求的是一个“异源”地址，浏览器将不允许读取返回的内容
+所谓的“同源”，必须要求相应的URI在如下3个方面均是相同的
+1.主机名称（域名/子域名或者IP地址）
+2.端口号
+3.网络协议（Scheme，分别采用“http”和“https”协议的两个URI被视为不同源）
+http://localhost:9527 如果此页面上的js脚本通过ajax url = http://localhost:3721/api/contacts
+获取类容，返回的数据将不会被应用程序获取和处理
+
+<script type="text/javascript">
+    // 得到航班信息查询结果后的回调函数
+    var flightHandler = function(data){
+        alert('你查询的航班结果是：票价 ' + data.price + ' 元，' + '余票 ' + data.tickets + ' 张。');
+    };
+    // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码）
+    var url = "http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998&callback=flightHandler";
+    // 创建script标签，设置其属性
+    var script = document.createElement('script');
+    script.setAttribute('src', url);
+    // 把script标签加入head，此时调用开始
+    document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+服务器端根据传的参数会很聪明的生成js脚本：
+flightHandler({
+    "code": "CA1998",
+    "price": 1780,
+    "tickets": 5
+});
+
+JSONP仅仅是利用<script>的src标签加载的脚本不受同源策略约束而采取的一种编程技巧，其本身并不是一种官方协议。并且并非所有类型跨域调用都能采用JSONP的方式来解决（由于所有具有src属性的HTML标签均通过HTTP-GET的方式来加载目标资源，这决定了JSONP只适用于HTTP-GET请求），所以我们必须寻求一种更好的解决方案。
+
+怎么封装处理，实现像ajax请求同源资源一样，请求非同源资源的？
+无法实现，需要依赖服务器端根据callback参数返回特定的调用脚本。
