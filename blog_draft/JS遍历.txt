@@ -1,0 +1,6 @@
+for...in 会遍历对象自身和其原型链上所有可枚举的成员（属性和方法）
+forEach仅遍历数组元素，即那些可以通过索引访问到的元素。
+另外可以通过break来终止for...in，但没有办法终止forEach。
+
+要让Array.prototype.forEach在object上调用，需要该对象具有length属性，
+所以Array.prototype.forEach可以应用在Argument对象或者是HTMLCollection对象上.
